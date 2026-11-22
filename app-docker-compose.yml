@@ -1,0 +1,37 @@
+services:
+  lpdb:
+    image: mariadb:10.11
+    ports:
+      - "3306:3306"
+    volumes:
+      - 
+    environment:
+      - MYSQL_ROOT_PASSWORD= ${MYSQL_ROOT_PASSWORD}
+
+  lpcache01:
+    image: memcached
+    ports:
+      - "11211:11211"
+
+  lpmq01:
+    image: rabbitmq
+    ports:
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_ADMIN_PASSWORD}
+
+  lpapp:
+    image: IMAGE_NAME
+    ports:
+      - "8080:8080"
+    volumes: 
+      - 
+
+  lpweb:
+    image: IMAGE_NAME
+    ports:
+      - "80:80"
+volumes:
+  lpdbdata: {}
+  lpappdata: {}

@@ -18,7 +18,7 @@ dist/
 .mypy_cache/
 .ruff_cache/
 
-# AWS / infrastructure tooling
+# Terraform
 .terraform/
 *.tfstate
 *.tfstate.*
